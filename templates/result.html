@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recipe Generator - Generate Recipe</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(90deg, #e0f2fe, #bae6fd);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+     .navbar {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+    main.container {
+      flex-grow: 1;
+      max-width: 480px;
+      margin: 4rem auto 2rem;
+      background-color: white;
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgb(37 99 235 / 0.2);
+    }
+    main h2 {
+      color: #2563eb;
+      font-weight: 700;
+      margin-bottom: 1.75rem;
+      text-align: center;
+    }
+    label.form-label {
+      font-weight: 600;
+      color: #334155;
+    }
+    textarea.form-control {
+      border-radius: 0.5rem;
+      border: 1.5px solid #cbd5e1;
+      resize: none;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: none;
+    }
+    textarea.form-control:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
+    }
+    button.btn-primary {
+      background-color: #2563eb;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.65rem;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    button.btn-primary:hover {
+      background-color: #1e40af;
+    }
+           .footer {
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .footer a {
+            color: #93c5fd;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="/">Recipe Generator</a>
+      <div>
+        <a href="{{ url_for('logout') }}" class="nav-link d-inline text-white">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card shadow p-4 w-100" style="max-width: 600px;">
+    <h2 class="text-center text-success mb-4">Your Generated Recipe</h2>
+
+    <div class="mb-3">
+      <h5 class="text-muted">Ingredients you provided:</h5>
+      <p class="border p-2 bg-light rounded">{{ ingredients }}</p>
+    </div>
+
+    <div class="mb-3">
+      <h5 class="text-muted">Generated Recipe:</h5>
+      <div class="border p-3 bg-white rounded" style="white-space: pre-wrap;">{{ recipe | safe }}</div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="/input" class="btn btn-primary">Generate Another Recipe</a>
+    </div>
+  </div>
+</div>
+
+ <div class="footer">
+        &copy; 2025 Recipe Generator. All rights reserved.
+        | <a href="{{ url_for('home') }}">Home</a>
+        | <a href="mailto:anjanasatheesh5203@gmail.com">Contact</a>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
